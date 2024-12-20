@@ -3,7 +3,7 @@ pipeline {
     environment {
         AWS_REGION = 'us-east-1'
     }
-    stages {
+    stages 
         stage('Checkout Code') {
             steps {
                // replace git URL below with your git repo url
@@ -26,4 +26,5 @@ pipeline {
                 sh 'terraform apply -auto-approve tfplan'
             }
         }
-    }
+}
+    
