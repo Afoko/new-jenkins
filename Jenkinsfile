@@ -18,9 +18,12 @@ pipeline {
         stage('Plan Terraform') {
             steps {
                 sh 'terraform plan -out=tfplan'
-            }s
+            }
+        }
+        stage('Apply Terraform') {
+            steps {
                 input message: "Approve deployment?", ok: "Deploy"
-                sh 'terraform apply tfplan'
+                sh 'terraform apply -auto-approve tfplan'
             }
         }
     }
